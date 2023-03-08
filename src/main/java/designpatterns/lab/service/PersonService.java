@@ -36,6 +36,16 @@ public class PersonService {
         personRepository.deleteById(id);
     }
 
+    public Person update(Long id, Person person) {
+        Person person1 = personRepository.findById(id).get();
+        person1.setFirstName(person.getFirstName());
+        person1.setLastName(person.getLastName());
+        person1.setCpf(person.getCpf());
+        person1.setBirthDate(person.getBirthDate());
+        person1.getAddress().setCep(person.getAddress().getCep());
+        return savePerson(person1);
+    }
+
     private Person savePerson(Person person) {
         // Verificar se o Endereco do Cliente já existe (pelo CEP).
         String cep = person.getAddress().getCep();
