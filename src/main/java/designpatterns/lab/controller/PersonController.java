@@ -27,4 +27,9 @@ public class PersonController {
     public Person findById(@PathVariable Long id) {
         return personService.findById(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        personService.delete(id);
+    }
 }
