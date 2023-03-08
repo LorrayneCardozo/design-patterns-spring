@@ -28,9 +28,12 @@ public class PersonService {
         return savePerson(person);
     }
 
+    public Person findById(Long id) {
+        return personRepository.findById(id).get();
+    }
+
     private Person savePerson(Person person) {
         // Verificar se o Endereco do Cliente já existe (pelo CEP).
-
         String cep = person.getAddress().getCep();
 
         Address address = addressRepository.findById(cep).orElseGet(() -> {

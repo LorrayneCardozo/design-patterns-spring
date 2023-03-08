@@ -13,15 +13,18 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
+    @GetMapping
+    public List<Person> findAll(){
+        return personService.findAll();
+    }
 
     @PostMapping
     public Person create(@RequestBody Person person) {
         return personService.create(person);
     }
 
-
-    @GetMapping
-    public List<Person> findAll(){
-        return personService.findAll();
+    @GetMapping("/{id}")
+    public Person findById(@PathVariable Long id) {
+        return personService.findById(id);
     }
 }
