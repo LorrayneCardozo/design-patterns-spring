@@ -2,6 +2,8 @@ package designpatterns.lab.repository;
 
 import designpatterns.lab.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public abstract class PersonRepository implements JpaRepository<Person, Long> {
+@Repository
+public interface PersonRepository extends JpaRepository<Person, Long> {
 }

@@ -2,6 +2,8 @@ package designpatterns.lab.repository;
 
 import designpatterns.lab.entity.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public abstract class AddressRepository implements JpaRepository<Address, String> {
+@Repository
+public interface AddressRepository extends JpaRepository<Address, String> {
 }
